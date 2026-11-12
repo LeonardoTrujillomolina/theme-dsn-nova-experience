@@ -4,6 +4,14 @@ A new customization experience for VS Code that makes your hours of development 
 
 > Programming first. Every color has a purpose.
 
+## What is this?
+
+DSN Nova Experience is **more than a set of themes**. It also lets you customize how VS Code looks, live, from a panel inside the editor: put a wallpaper behind your code, make the interface translucent like glass, add neon accents, and recolor your code, all with sliders and color pickers. You never need to edit `settings.json`.
+
+> **For the full experience you also need the _Custom CSS and JS Loader_ extension** (`be5invis.vscode-custom-css`). VS Code has no built-in way to change its own interface, and this extension does it for us. DSN Nova Experience sets it up for you, in a few clicks (see [Getting started](#getting-started)).
+>
+> Without the loader you still get the three color themes. Wallpaper, transparency, neon and the panel need it.
+
 ## Themes
 
 ### DSN Nova Dark
@@ -34,16 +42,18 @@ A space theme with its own wallpaper and a palette taken from the image.
 
 ## Requirements
 
-DSN Nova Experience injects CSS and JavaScript into the VS Code interface through the
-[Custom CSS and JS Loader](https://marketplace.visualstudio.com/items?itemName=be5invis.vscode-custom-css) extension (`be5invis.vscode-custom-css`), which is installed as a dependency.
+| What you want | What you need |
+| --- | --- |
+| Only the color themes | Just this extension |
+| Wallpaper, glass transparency, neon and the live panel | This extension **and** the [Custom CSS and JS Loader](https://marketplace.visualstudio.com/items?itemName=be5invis.vscode-custom-css) (`be5invis.vscode-custom-css`) |
 
-The color themes themselves work without it. The wallpaper, transparency, neon and the live panel need it.
+The loader is listed as a companion extension, so VS Code offers to install it with this one. If it is missing, install it from the Extensions view. DSN Nova Experience injects its CSS and JavaScript through it.
 
 ---
 
 ## Getting started
 
-1. Install the extension.
+1. Install this extension and the **Custom CSS and JS Loader** if VS Code did not already install it.
 2. Open the Command Palette (`Ctrl+Shift+P`) and run **Preferences: Color Theme**, then choose one of the DSN Nova themes.
 3. Run **DSN Nova: Enable Full Experience**.
 4. Accept the loader prompt and restart VS Code when asked.
@@ -69,23 +79,7 @@ Open it with the **diamond button** in the activity bar, or press `Ctrl+Alt+N`. 
 | **Colors** | The seven code colors. |
 | **Fonts** | Interface font. |
 
-### Wallpaper
-![Wallpaper tab](images/panel-wallpaper.png)
-
-### Zones
-![Zones tab](images/panel-zones.png)
-
-### Windows
-![Windows tab](images/panel-windows.png)
-
-### Effects
-![Effects tab](images/panel-effects.png)
-
-### Colors
-![Colors tab](images/panel-colors.png)
-
-### Fonts
-![Fonts tab](images/panel-fonts.png)
+![DSN Nova panel](images/panel.png)
 
 For editor font groups (family, size and ligatures) click **DSN Nova** in the status bar and choose **Font group**.
 
