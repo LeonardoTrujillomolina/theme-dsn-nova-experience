@@ -8,6 +8,15 @@ A new customization experience for VS Code that makes your hours of development 
 
 DSN Nova Experience is **more than a set of themes**. It also lets you customize how VS Code looks, live, from a panel inside the editor: put a wallpaper behind your code, make the interface translucent like glass, add neon accents, and recolor your code, all with sliders and color pickers. You never need to edit `settings.json`.
 
+**You decide how every part looks:**
+- **Your own wallpaper**: pick any image from your computer and choose how it fits, and whether it covers the whole window or only the editor.
+- **Your own code colors**: pick the colors of your code, one by one, from the editor-color section of the panel.
+- **Every zone**: set the transparency of the sidebar, activity bar, panel, status bar, pages, popups and menus independently.
+- **Effects**: tune the text legibility effect and the neon borders and scrollbar, or turn them off.
+- **Fonts**: choose an interface font and a font group for the editor.
+
+Every control has its own reset button, so you can always go back.
+
 > **For the full experience you also need the _Custom CSS and JS Loader_ extension** (`be5invis.vscode-custom-css`). VS Code has no built-in way to change its own interface, and this extension does it for us. DSN Nova Experience sets it up for you, in a few clicks (see [Getting started](#getting-started)).
 >
 > Without the loader you still get the three color themes. Wallpaper, transparency, neon and the panel need it.
@@ -80,6 +89,14 @@ Open it with the **diamond button** in the activity bar, or press `Ctrl+Alt+N`. 
 | **Fonts** | Interface font. |
 
 ![DSN Nova panel](images/panel.png)
+
+The picture above shows the **Wallpaper** tab, where you can choose **your own image** with **Choose image...**, change how it fits and where it is shown, or go back to the default with **Use default**.
+
+### Choose the colors of your code
+
+The **Colors** tab lets you pick the color of each role of your code (functions, classes, strings, numbers, constants, warnings and structure) with a color picker. The change is applied to the editor immediately, and the arrow next to each color restores the theme's original one.
+
+![Colors tab](images/colors.png)
 
 For editor font groups (family, size and ligatures) click **DSN Nova** in the status bar and choose **Font group**.
 
