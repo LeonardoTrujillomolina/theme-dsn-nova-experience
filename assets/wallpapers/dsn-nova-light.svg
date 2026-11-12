@@ -1,0 +1,122 @@
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="1920"
+    height="1080"
+    viewBox="0 0 1920 1080"
+    preserveAspectRatio="xMidYMid slice"
+>
+    <defs>
+        <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#F1F4F8"/>
+            <stop offset="45%" stop-color="#D7DEE7"/>
+            <stop offset="100%" stop-color="#8E9DB0"/>
+        </linearGradient>
+
+        <linearGradient id="silver" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.06"/>
+            <stop offset="42%" stop-color="#FFFFFF" stop-opacity="0.48"/>
+            <stop offset="100%" stop-color="#738497" stop-opacity="0.40"/>
+        </linearGradient>
+
+        <linearGradient id="darkMetal" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#263442" stop-opacity="0.30"/>
+            <stop offset="50%" stop-color="#506274" stop-opacity="0.55"/>
+            <stop offset="100%" stop-color="#101922" stop-opacity="0.30"/>
+        </linearGradient>
+
+        <radialGradient id="lightGlow" cx="28%" cy="20%" r="75%">
+            <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.66"/>
+            <stop offset="55%" stop-color="#EEF2F7" stop-opacity="0.16"/>
+            <stop offset="100%" stop-color="#B9C4D0" stop-opacity="0"/>
+        </radialGradient>
+
+        <pattern
+            id="grid"
+            width="96"
+            height="96"
+            patternUnits="userSpaceOnUse"
+        >
+            <path
+                d="M 96 0 L 0 0 0 96"
+                fill="none"
+                stroke="#233547"
+                stroke-opacity="0.026"
+                stroke-width="1"
+            />
+        </pattern>
+    </defs>
+
+    <rect width="1920" height="1080" fill="url(#background)"/>
+    <rect width="1920" height="1080" fill="url(#lightGlow)"/>
+    <rect width="1920" height="1080" fill="url(#grid)"/>
+
+    <path
+        d="M 1040 -120 L 1370 -120 L 720 1180 L 390 1180 Z"
+        fill="url(#silver)"
+    />
+
+    <path
+        d="M 1360 -120 L 1450 -120 L 800 1180 L 710 1180 Z"
+        fill="url(#darkMetal)"
+    />
+
+    <path
+        d="M 1540 -100 L 1790 -100 L 1140 1180 L 890 1180 Z"
+        fill="#304152"
+        fill-opacity="0.055"
+    />
+
+    <path
+        d="M 0 730 L 0 1080 L 290 1080 L 680 690 L 680 410 Z"
+        fill="#FFFFFF"
+        fill-opacity="0.19"
+    />
+
+    <path
+        d="M 0 730 L 680 50"
+        fill="none"
+        stroke="#FFFFFF"
+        stroke-opacity="0.50"
+        stroke-width="2"
+    />
+
+    <path
+        d="M 940 1080 L 1510 510 L 1920 510"
+        fill="none"
+        stroke="#26394B"
+        stroke-opacity="0.25"
+        stroke-width="2"
+    />
+
+    <path
+        d="M 1210 1080 L 1700 600 L 1920 600"
+        fill="none"
+        stroke="#55687B"
+        stroke-opacity="0.16"
+        stroke-width="1"
+    />
+
+    <path
+        d="M 1170 245 L 1680 245"
+        fill="none"
+        stroke="#FFFFFF"
+        stroke-opacity="0.48"
+        stroke-width="1"
+    />
+
+    <path
+        d="M 1418 -40 L 775 1140"
+        fill="none"
+        stroke="#FFFFFF"
+        stroke-opacity="0.58"
+        stroke-width="2"
+    />
+
+    <path
+        d="M 1447 -40 L 804 1140"
+        fill="none"
+        stroke="#41566A"
+        stroke-opacity="0.15"
+        stroke-width="1"
+    />
+</svg>
