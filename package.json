@@ -1,0 +1,308 @@
+{
+    "name": "theme-dsn-nova-experience",
+    "displayName": "DSN Nova Experience",
+    "description": "A new customization experience that makes your hours of development better: Dark, Light and Horizon themes, wallpapers, glass transparency, code colors and fonts, all adjustable from one friendly panel.",
+    "version": "0.1.0",
+    "publisher": "dsn-nova-local",
+    "license": "MIT",
+    "author": "Leonardo Trujillo",
+    "icon": "media/icon.png",
+    "galleryBanner": {
+        "color": "#0B1120",
+        "theme": "dark"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/LeonardoTrujillomolina/theme-dsn-nova-experience.git"
+    },
+    "bugs": {
+        "url": "https://github.com/LeonardoTrujillomolina/theme-dsn-nova-experience/issues"
+    },
+    "homepage": "https://github.com/LeonardoTrujillomolina/theme-dsn-nova-experience#readme",
+    "engines": {
+        "vscode": "^1.95.0"
+    },
+    "categories": [
+        "Themes",
+        "Extension Packs",
+        "Other"
+    ],
+    "keywords": [
+        "theme",
+        "dark theme",
+        "light theme",
+        "glassmorphism",
+        "wallpaper",
+        "aerospace",
+        "custom css",
+        "horizon",
+        "transparent",
+        "customization",
+        "space",
+        "neon"
+    ],
+    "main": "./out/extension.js",
+    "activationEvents": [
+        "onStartupFinished"
+    ],
+    "extensionPack": [
+        "be5invis.vscode-custom-css"
+    ],
+    "contributes": {
+        "themes": [
+            {
+                "label": "DSN Nova Dark",
+                "uiTheme": "vs-dark",
+                "path": "./themes/dsn-nova-dark.json"
+            },
+            {
+                "label": "DSN Nova Light",
+                "uiTheme": "vs",
+                "path": "./themes/dsn-nova-light.json"
+            },
+            {
+                "label": "DSN Nova Horizon",
+                "uiTheme": "vs-dark",
+                "path": "./themes/dsn-nova-horizon.json"
+            }
+        ],
+        "commands": [
+            {
+                "command": "dsnNova.enableFullExperience",
+                "title": "DSN Nova: Enable Full Experience",
+                "category": "DSN Nova"
+            },
+            {
+                "command": "dsnNova.applyAppearance",
+                "title": "DSN Nova: Apply Appearance",
+                "category": "DSN Nova"
+            },
+            {
+                "command": "dsnNova.selectWallpaper",
+                "title": "DSN Nova: Select Custom Wallpaper",
+                "category": "DSN Nova"
+            },
+            {
+                "command": "dsnNova.useDefaultWallpaper",
+                "title": "DSN Nova: Use Default Wallpaper",
+                "category": "DSN Nova"
+            },
+            {
+                "command": "dsnNova.toggleTheme",
+                "title": "DSN Nova: Toggle Light/Dark",
+                "category": "DSN Nova"
+            },
+            {
+                "command": "dsnNova.openSettings",
+                "title": "DSN Nova: Open Appearance Panel",
+                "category": "DSN Nova"
+            },
+            {
+                "command": "dsnNova.chooseFontGroup",
+                "title": "DSN Nova: Choose Font Group",
+                "category": "DSN Nova"
+            },
+            {
+                "command": "dsnNova.restoreDefaults",
+                "title": "DSN Nova: Restore Default Appearance",
+                "category": "DSN Nova"
+            },
+            {
+                "command": "dsnNova.restoreSafeMode",
+                "title": "DSN Nova: Restore Safe Mode",
+                "category": "DSN Nova"
+            },
+            {
+                "command": "dsnNova.showDiagnostics",
+                "title": "DSN Nova: Show Diagnostics",
+                "category": "DSN Nova"
+            }
+        ],
+        "configuration": {
+            "title": "DSN Nova",
+            "properties": {
+                "dsnNova.appearance": {
+                    "type": "string",
+                    "enum": [
+                        "auto",
+                        "dark",
+                        "light"
+                    ],
+                    "enumDescriptions": [
+                        "Follow the currently selected DSN Nova theme.",
+                        "Use DSN Nova Dark.",
+                        "Use DSN Nova Light."
+                    ],
+                    "default": "auto",
+                    "markdownDescription": "Controls the active DSN Nova appearance. **[Open the Appearance Panel (sliders)](command:dsnNova.openSettings)** to adjust opacity, blur and text effects without typing numbers."
+                },
+                "dsnNova.wallpaper.enabled": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Enables the DSN Nova wallpaper."
+                },
+                "dsnNova.wallpaper.path": {
+                    "type": "string",
+                    "default": "",
+                    "markdownDescription": "Absolute path of the custom wallpaper. Empty uses the bundled wallpaper.\n\n[$(file-media) Select image...](command:dsnNova.selectWallpaper) &nbsp; [$(discard) Use default](command:dsnNova.useDefaultWallpaper)"
+                },
+                "dsnNova.wallpaper.fit": {
+                    "type": "string",
+                    "enum": [
+                        "cover",
+                        "contain",
+                        "auto",
+                        "100% 100%"
+                    ],
+                    "default": "cover",
+                    "description": "Controls how the wallpaper fits the VS Code window."
+                },
+                "dsnNova.wallpaper.position": {
+                    "type": "string",
+                    "enum": [
+                        "center",
+                        "top",
+                        "bottom",
+                        "left",
+                        "right",
+                        "center top",
+                        "center bottom"
+                    ],
+                    "default": "center",
+                    "description": "Controls the wallpaper position."
+                },
+                "dsnNova.wallpaper.opacity": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 1,
+                    "default": 0.8,
+                    "markdownDescription": "Wallpaper opacity from 0 to 1. [Adjust with sliders](command:dsnNova.openSettings)"
+                },
+                "dsnNova.wallpaper.brightness": {
+                    "type": "number",
+                    "minimum": 0.2,
+                    "maximum": 1.5,
+                    "default": 0.82,
+                    "description": "Wallpaper brightness."
+                },
+                "dsnNova.wallpaper.saturation": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 2,
+                    "default": 0.9,
+                    "description": "Wallpaper saturation."
+                },
+                "dsnNova.wallpaper.blur": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 30,
+                    "default": 0,
+                    "description": "Wallpaper blur in pixels."
+                },
+                "dsnNova.glass.enabled": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Enables glassmorphism effects."
+                },
+                "dsnNova.glass.blur": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 40,
+                    "default": 18,
+                    "description": "Glass blur intensity in pixels."
+                },
+                "dsnNova.glass.saturation": {
+                    "type": "number",
+                    "minimum": 50,
+                    "maximum": 200,
+                    "default": 118,
+                    "description": "Glass saturation percentage."
+                },
+                "dsnNova.opacity.editor": {
+                    "type": "number",
+                    "minimum": 0.5,
+                    "maximum": 1,
+                    "default": 0.82,
+                    "description": "Editor background opacity."
+                },
+                "dsnNova.opacity.sidebar": {
+                    "type": "number",
+                    "minimum": 0.5,
+                    "maximum": 1,
+                    "default": 0.78,
+                    "markdownDescription": "Explorer and Side Bar opacity. [Adjust with sliders](command:dsnNova.openSettings)"
+                },
+                "dsnNova.opacity.activityBar": {
+                    "type": "number",
+                    "minimum": 0.5,
+                    "maximum": 1,
+                    "default": 0.82,
+                    "description": "Activity Bar opacity."
+                },
+                "dsnNova.opacity.panel": {
+                    "type": "number",
+                    "minimum": 0.5,
+                    "maximum": 1,
+                    "default": 0.84,
+                    "description": "Panel and terminal opacity."
+                },
+                "dsnNova.opacity.statusBar": {
+                    "type": "number",
+                    "minimum": 0.5,
+                    "maximum": 1,
+                    "default": 0.92,
+                    "description": "Status Bar opacity."
+                },
+                "dsnNova.geometry.opacity": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 1,
+                    "default": 0.38,
+                    "description": "Aerospace geometry overlay opacity."
+                },
+                "dsnNova.textEffect.enabled": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Glow behind code in Dark, soft shadow in Light, to keep code readable over any wallpaper."
+                },
+                "dsnNova.textEffect.strength": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 1,
+                    "default": 0.6,
+                    "markdownDescription": "Strength of the text effect. Use 'DSN Nova: Open Appearance Panel' for sliders. [Adjust with sliders](command:dsnNova.openSettings)"
+                },
+                "dsnNova.menus.blur": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 12,
+                    "default": 4,
+                    "markdownDescription": "Blur behind menus in pixels. 0 disables the blur. [Adjust with sliders](command:dsnNova.openSettings)"
+                },
+                "dsnNova.menus.opacity": {
+                    "type": "number",
+                    "minimum": 0.3,
+                    "maximum": 1,
+                    "default": 0.72,
+                    "markdownDescription": "Menu background opacity. [Adjust with sliders](command:dsnNova.openSettings)"
+                },
+                "dsnNova.debug.outlines": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Shows diagnostic outlines around the principal VS Code surfaces."
+                }
+            }
+        }
+    },
+    "scripts": {
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -p ./",
+        "watch": "tsc -watch -p ./",
+        "check": "tsc -p ./ --noEmit"
+    },
+    "devDependencies": {
+        "@types/node": "^22.0.0",
+        "@types/vscode": "^1.95.0",
+        "typescript": "^5.7.0"
+    }
+}
