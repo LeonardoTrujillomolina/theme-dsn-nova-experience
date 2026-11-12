@@ -1,0 +1,76 @@
+/* =========================================================
+   DSN NOVA SAFE MODE
+
+   Minimal recovery stylesheet.
+   Removes DSN Nova visual layers without altering the
+   native VS Code layout.
+   ========================================================= */
+
+.monaco-workbench::before,
+.monaco-workbench::after {
+    content: none !important;
+    display: none !important;
+
+    background-image: none !important;
+    filter: none !important;
+    backdrop-filter: none !important;
+
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+}
+
+/* Remove DSN Nova stacking and isolation rules. */
+
+.monaco-workbench {
+    position: relative !important;
+    isolation: auto !important;
+
+    background-image: none !important;
+    filter: none !important;
+    backdrop-filter: none !important;
+}
+
+/* Restore the principal workbench layers. */
+
+.monaco-workbench > .part,
+.monaco-workbench .part.editor,
+.monaco-workbench .part.sidebar,
+.monaco-workbench .part.activitybar,
+.monaco-workbench .part.panel,
+.monaco-workbench .part.statusbar {
+    position: relative !important;
+
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+
+    z-index: auto !important;
+    transform: none !important;
+    filter: none !important;
+    backdrop-filter: none !important;
+}
+
+/* Restore interactive behavior. */
+
+.monaco-workbench,
+.monaco-workbench > .part,
+.monaco-workbench .part.editor,
+.monaco-workbench .part.sidebar,
+.monaco-workbench .part.activitybar,
+.monaco-workbench .part.panel,
+.monaco-workbench .part.statusbar,
+.monaco-workbench .editor-group-container,
+.monaco-workbench .editor-instance,
+.monaco-workbench .monaco-editor {
+    pointer-events: auto !important;
+}
+
+/* Disable visual animation during recovery. */
+
+.monaco-workbench *,
+.monaco-workbench *::before,
+.monaco-workbench *::after {
+    animation: none !important;
+    transition: none !important;
+}

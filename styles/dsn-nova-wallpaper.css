@@ -1,0 +1,659 @@
+/* =========================================================
+   DSN NOVA WALLPAPER LAYER
+   ========================================================= */
+
+.monaco-workbench {
+    position: relative !important;
+    background-color: transparent !important;
+    background-image: none !important;
+}
+/* =========================================================
+   WALLPAPER BACKGROUND
+
+   The background image is assigned dynamically through
+   dsn-nova-generated.css.
+   ========================================================= */
+
+.monaco-workbench::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    display: block;
+    z-index: -1;
+    pointer-events: none;
+    display: none;
+
+    background-color: #070c13;
+    background-image:
+        linear-gradient(
+            var(--dsn-nova-wallpaper-overlay, rgba(5, 9, 18, 0.45)),
+            var(--dsn-nova-wallpaper-overlay, rgba(5, 9, 18, 0.45))
+        ),
+        var(--dsn-nova-wallpaper-image, none);
+    background-position: var(--dsn-nova-wallpaper-position, center);
+    background-repeat: no-repeat;
+    background-size: var(--dsn-nova-wallpaper-size, cover);
+
+    opacity: var(--dsn-wallpaper-enabled, 1);
+
+    filter:
+        brightness(
+            var(--dsn-wallpaper-brightness, 1)
+        )
+        saturate(
+            var(--dsn-wallpaper-saturation, 0.9)
+        )
+        blur(
+            var(--dsn-wallpaper-blur, 0px)
+        );
+
+    transform: scale(1.015);
+    transform-origin: center;
+}
+
+/* =========================================================
+   PRINCIPAL WORKBENCH SURFACES
+   ========================================================= */
+
+.monaco-workbench > .part {
+    position: relative;
+    z-index: 1;
+    background-image: none !important;
+}
+
+/* =========================================================
+   EDITOR
+   ========================================================= */
+
+.monaco-workbench .part.editor {
+    background-color:
+        rgba(
+            7,
+            12,
+            19,
+            var(--dsn-editor-opacity, 0.55)
+        ) !important;
+}
+
+/* =========================================================
+   SIDEBAR
+   ========================================================= */
+
+.monaco-workbench .part.sidebar {
+    background-color:
+        rgba(
+            14,
+            21,
+            31,
+            var(--dsn-sidebar-opacity, 0.78)
+        ) !important;
+}
+
+/* =========================================================
+   ACTIVITY BAR
+   ========================================================= */
+
+.monaco-workbench .part.activitybar {
+    background-color:
+        rgba(
+            30,
+            40,
+            53,
+            var(--dsn-activity-opacity, 0.82)
+        ) !important;
+}
+
+/* =========================================================
+   PANEL AND TERMINAL
+   ========================================================= */
+
+.monaco-workbench .part.panel {
+    background-color:
+        rgba(
+            8,
+            14,
+            22,
+            var(--dsn-panel-opacity, 0.84)
+        ) !important;
+}
+
+/* =========================================================
+   STATUS BAR
+   ========================================================= */
+
+.monaco-workbench .part.statusbar {
+    background-color:
+        rgba(
+            11,
+            20,
+            31,
+            var(--dsn-status-opacity, 0.92)
+        ) !important;
+}
+
+/* =========================================================
+   EDITOR SURFACES
+
+   Avoid modifying Monaco structural elements such as
+   .overflow-guard because they can break editor rendering.
+   ========================================================= */
+
+.monaco-workbench .editor-group-container,
+.monaco-workbench .editor-instance,
+.monaco-workbench .monaco-editor,
+.monaco-workbench .monaco-editor-background,
+.monaco-workbench .monaco-editor .margin {
+    background-color: transparent !important;
+}
+
+/* =========================================================
+   TERMINAL SURFACES
+   ========================================================= */
+
+.monaco-workbench .terminal-wrapper,
+.monaco-workbench .terminal-outer-container,
+.monaco-workbench .xterm,
+.monaco-workbench .xterm-viewport,
+.monaco-workbench .xterm-screen {
+    background-color: transparent !important;
+}
+.monaco-workbench {
+    --vscode-editor-background: transparent !important;
+}
+/* =========================================================
+   SIDEBAR / ACTIVITY BAR WITH WALLPAPER
+   Same image, fixed to the viewport, so it lines up with the
+   editor area and looks like one continuous surface.
+   ========================================================= */
+
+html body .monaco-workbench.dsn-nova-wallpaper-enabled .part.sidebar,
+html body .monaco-workbench.dsn-nova-wallpaper-enabled .part.activitybar {
+    background:
+        linear-gradient(
+            160deg,
+            rgba(10, 16, 25, calc(var(--dsn-sidebar-opacity, 0.78) * 0.42)),
+            rgba(8, 13, 20, calc(var(--dsn-sidebar-opacity, 0.78) * 0.58))
+        ),
+        var(--dsn-nova-wallpaper-image, none)
+        var(--dsn-nova-wallpaper-position, center) / var(--dsn-nova-wallpaper-size, cover) var(--dsn-nova-wallpaper-repeat, no-repeat) fixed !important;
+
+    backdrop-filter: none !important;
+    border-right: 1px solid rgba(190, 210, 230, 0.16) !important;
+    box-shadow: inset -1px 0 0 rgba(255, 255, 255, 0.05) !important;
+}
+
+html body .monaco-workbench.dsn-nova-wallpaper-enabled .part.sidebar .composite.title {
+    background: linear-gradient(90deg, rgba(120, 190, 240, 0.14), transparent 75%) !important;
+    border-bottom: 1px solid rgba(190, 210, 230, 0.16) !important;
+}
+
+html body .monaco-workbench.dsn-nova-wallpaper-enabled .part.sidebar .title-label h2 {
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+html body .monaco-workbench.dsn-nova-wallpaper-enabled .part.sidebar .monaco-list-row {
+    border-left: 2px solid transparent;
+    background: transparent !important;
+}
+
+html body .monaco-workbench.dsn-nova-wallpaper-enabled .part.sidebar .monaco-list-row:hover {
+    background: linear-gradient(90deg, rgba(120, 190, 240, 0.16), rgba(255, 255, 255, 0.03)) !important;
+    border-left-color: rgba(120, 190, 240, 0.6);
+}
+
+html body .monaco-workbench.dsn-nova-wallpaper-enabled .part.sidebar .monaco-list-row.selected,
+html body .monaco-workbench.dsn-nova-wallpaper-enabled .part.sidebar .monaco-list-row.focused {
+    background: linear-gradient(90deg, rgba(120, 190, 240, 0.34), rgba(255, 255, 255, 0.08)) !important;
+    border-left-color: #5dbff4;
+    clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 50%, calc(100% - 10px) 100%, 0 100%);
+}
+
+html body .monaco-workbench.dsn-nova-wallpaper-enabled .part.sidebar .monaco-list-row .monaco-icon-label {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.45);
+}
+
+/* Light theme */
+
+html body.dsn-nova-light-mode .monaco-workbench.dsn-nova-wallpaper-enabled .part.sidebar,
+html body.dsn-nova-light-mode .monaco-workbench.dsn-nova-wallpaper-enabled .part.activitybar {
+    background:
+        linear-gradient(
+            160deg,
+            rgba(240, 244, 249, calc(var(--dsn-sidebar-opacity, 0.78) * 0.42)),
+            rgba(222, 229, 238, calc(var(--dsn-sidebar-opacity, 0.78) * 0.52))
+        ),
+        var(--dsn-nova-wallpaper-image, none)
+        var(--dsn-nova-wallpaper-position, center) / var(--dsn-nova-wallpaper-size, cover) var(--dsn-nova-wallpaper-repeat, no-repeat) fixed !important;
+
+    border-right: 1px solid rgba(48, 64, 80, 0.22) !important;
+    box-shadow: inset -1px 0 0 rgba(255, 255, 255, 0.5) !important;
+}
+
+html body.dsn-nova-light-mode .monaco-workbench.dsn-nova-wallpaper-enabled .part.sidebar .composite.title {
+    background: linear-gradient(90deg, rgba(60, 120, 180, 0.14), transparent 75%) !important;
+    border-bottom-color: rgba(48, 64, 80, 0.18) !important;
+}
+
+html body.dsn-nova-light-mode .monaco-workbench.dsn-nova-wallpaper-enabled .part.sidebar .monaco-list-row:hover {
+    background: linear-gradient(90deg, rgba(40, 110, 180, 0.16), rgba(255, 255, 255, 0.3)) !important;
+}
+
+html body.dsn-nova-light-mode .monaco-workbench.dsn-nova-wallpaper-enabled .part.sidebar .monaco-list-row.selected,
+html body.dsn-nova-light-mode .monaco-workbench.dsn-nova-wallpaper-enabled .part.sidebar .monaco-list-row.focused {
+    background: linear-gradient(90deg, rgba(40, 110, 180, 0.30), rgba(255, 255, 255, 0.35)) !important;
+    border-left-color: #1f6fb5;
+}
+
+html body.dsn-nova-light-mode .monaco-workbench.dsn-nova-wallpaper-enabled .part.sidebar .monaco-list-row .monaco-icon-label {
+    text-shadow: none;
+}
+
+/* =========================================================
+   TREE / LIST TRANSPARENCY AND READABILITY
+   ========================================================= */
+
+html body .monaco-workbench.dsn-nova-wallpaper-enabled .part.sidebar .pane-body,
+html body .monaco-workbench.dsn-nova-wallpaper-enabled .part.sidebar .pane-header,
+html body .monaco-workbench.dsn-nova-wallpaper-enabled .part.sidebar .split-view-view,
+html body .monaco-workbench.dsn-nova-wallpaper-enabled .part.sidebar .monaco-pane-view,
+html body .monaco-workbench.dsn-nova-wallpaper-enabled .part.sidebar .monaco-list,
+html body .monaco-workbench.dsn-nova-wallpaper-enabled .part.sidebar .monaco-list-rows,
+html body .monaco-workbench.dsn-nova-wallpaper-enabled .part.sidebar .explorer-folders-view,
+html body .monaco-workbench.dsn-nova-wallpaper-enabled .part.sidebar .monaco-scrollable-element,
+html body .monaco-workbench.dsn-nova-wallpaper-enabled .part.sidebar .content {
+    background-color: transparent !important;
+}
+
+html body .monaco-workbench.dsn-nova-wallpaper-enabled .minimap,
+html body .monaco-workbench.dsn-nova-wallpaper-enabled .minimap canvas {
+    opacity: 0.9;
+}
+
+html body.dsn-nova-light-mode .monaco-workbench.dsn-nova-wallpaper-enabled .part.sidebar {
+    background:
+        linear-gradient(
+            160deg,
+            rgba(240, 244, 249, 0.46),
+            rgba(226, 232, 240, 0.52)
+        ),
+        var(--dsn-nova-wallpaper-image, none)
+        var(--dsn-nova-wallpaper-position, center) / var(--dsn-nova-wallpaper-size, cover) var(--dsn-nova-wallpaper-repeat, no-repeat) fixed !important;
+}
+
+html body.dsn-nova-light-mode .monaco-workbench.dsn-nova-wallpaper-enabled .part.activitybar {
+    background:
+        linear-gradient(
+            180deg,
+            rgba(240, 244, 249, 0.74),
+            rgba(226, 232, 240, 0.78)
+        ),
+        var(--dsn-nova-wallpaper-image, none)
+        var(--dsn-nova-wallpaper-position, center) / var(--dsn-nova-wallpaper-size, cover) var(--dsn-nova-wallpaper-repeat, no-repeat) fixed !important;
+}
+
+html body.dsn-nova-light-mode .monaco-workbench.dsn-nova-wallpaper-enabled .part.activitybar .action-label,
+html body.dsn-nova-light-mode .monaco-workbench.dsn-nova-wallpaper-enabled .part.activitybar .codicon {
+    color: #111d29 !important;
+}
+
+html body.dsn-nova-light-mode .monaco-workbench.dsn-nova-wallpaper-enabled .part.sidebar .monaco-list-row .monaco-icon-label {
+    text-shadow: 0 0 4px rgba(255, 255, 255, 0.7);
+}
+
+html body:not(.dsn-nova-light-mode) .monaco-workbench.dsn-nova-wallpaper-enabled .part.activitybar .action-label {
+    color: #cfe0f0 !important;
+}
+
+/* Catch-all: inner sidebar containers must not paint their own background */
+html body .monaco-workbench.dsn-nova-wallpaper-enabled .part.sidebar div:not(.monaco-list-row):not(.monaco-button):not(.monaco-inputbox):not(.monaco-count-badge):not(.badge):not(.badge-content):not(.slider):not(.scrollbar):not(.monaco-editor):not(.monaco-editor *):not(.monaco-hover):not(.monaco-custom-toggle):not(.action-item):not(.selection-box):not(.sash):not(.focused):not(.selected),
+html body .monaco-workbench.dsn-nova-wallpaper-enabled .part.sidebar > .title,
+html body .monaco-workbench.dsn-nova-wallpaper-enabled .part.sidebar > .content {
+    background-color: transparent !important;
+}
+
+/* =========================================================
+   TITLE BAR / STATUS BAR / PANEL / SECONDARY SIDEBAR
+   Same fixed wallpaper as the rest of the window.
+   ========================================================= */
+
+html body .monaco-workbench.dsn-nova-wallpaper-enabled .part.titlebar,
+html body .monaco-workbench.dsn-nova-wallpaper-enabled .part.statusbar,
+html body .monaco-workbench.dsn-nova-wallpaper-enabled .part.panel,
+html body .monaco-workbench.dsn-nova-wallpaper-enabled .part.auxiliarybar {
+    background:
+        linear-gradient(
+            160deg,
+            rgba(10, 16, 25, 0.40),
+            rgba(8, 13, 20, 0.52)
+        ),
+        var(--dsn-nova-wallpaper-image, none)
+        var(--dsn-nova-wallpaper-position, center) / var(--dsn-nova-wallpaper-size, cover) var(--dsn-nova-wallpaper-repeat, no-repeat) fixed !important;
+    backdrop-filter: none !important;
+}
+
+html body .monaco-workbench.dsn-nova-wallpaper-enabled .part.titlebar div,
+html body .monaco-workbench.dsn-nova-wallpaper-enabled .part.statusbar div:not(.statusbar-item):not(.statusbar-item *),
+html body .monaco-workbench.dsn-nova-wallpaper-enabled .part.panel > .title,
+html body .monaco-workbench.dsn-nova-wallpaper-enabled .part.panel .composite.title,
+html body .monaco-workbench.dsn-nova-wallpaper-enabled .part.auxiliarybar > .title,
+html body .monaco-workbench.dsn-nova-wallpaper-enabled .part.auxiliarybar > .content {
+    background-color: transparent !important;
+}
+
+html body.dsn-nova-light-mode .monaco-workbench.dsn-nova-wallpaper-enabled .part.titlebar,
+html body.dsn-nova-light-mode .monaco-workbench.dsn-nova-wallpaper-enabled .part.statusbar,
+html body.dsn-nova-light-mode .monaco-workbench.dsn-nova-wallpaper-enabled .part.panel,
+html body.dsn-nova-light-mode .monaco-workbench.dsn-nova-wallpaper-enabled .part.auxiliarybar {
+    background:
+        linear-gradient(
+            160deg,
+            rgba(240, 244, 249, 0.55),
+            rgba(226, 232, 240, 0.62)
+        ),
+        var(--dsn-nova-wallpaper-image, none)
+        var(--dsn-nova-wallpaper-position, center) / var(--dsn-nova-wallpaper-size, cover) var(--dsn-nova-wallpaper-repeat, no-repeat) fixed !important;
+}
+
+/* =========================================================
+   EDITOR TEXT LEGIBILITY OVER ANY IMAGE
+   Light theme: soft light halo behind dark text.
+   Dark theme: soft dark halo plus a faint cool glow.
+   ========================================================= */
+
+html body .monaco-workbench.dsn-nova-wallpaper-enabled .part.editor .monaco-editor .view-line span,
+html body .monaco-workbench.dsn-nova-wallpaper-enabled .part.editor .monaco-editor .line-numbers {
+    text-shadow:
+        0 0 calc(7px * var(--dsn-text-fx, 0.6))
+        rgba(150, 205, 255, calc(0.75 * var(--dsn-text-fx, 0.6)));
+}
+
+html body.dsn-nova-light-mode .monaco-workbench.dsn-nova-wallpaper-enabled .part.editor .monaco-editor .view-line span,
+html body.dsn-nova-light-mode .monaco-workbench.dsn-nova-wallpaper-enabled .part.editor .monaco-editor .line-numbers {
+    text-shadow:
+        0 1px calc(3px * var(--dsn-text-fx, 0.6))
+        rgba(10, 20, 35, calc(0.7 * var(--dsn-text-fx, 0.6)));
+}
+
+/* =========================================================
+   MENUS: colors consumed by the shadow-root style injected
+   from dsn-nova-runtime.js. Blur and opacity come from settings.
+   ========================================================= */
+
+:root {
+    --dsn-menu-bg: rgba(14, 22, 34, var(--dsn-menu-opacity, 0.72));
+}
+
+body.dsn-nova-light-mode {
+    --dsn-menu-bg: rgba(244, 247, 251, var(--dsn-menu-opacity, 0.72));
+}
+
+html body .monaco-hover,
+html body .monaco-editor .suggest-widget {
+    background-color: var(--dsn-menu-bg) !important;
+}
+
+/* Menubar dropdowns live inside the title bar and must stack above the other parts. */
+html body .monaco-workbench > .part.titlebar {
+    z-index: 500 !important;
+    overflow: visible !important;
+}
+
+
+html body .monaco-workbench .part.titlebar {
+    position: relative;
+    z-index: 500 !important;
+    overflow: visible !important;
+}
+
+/* While a menubar dropdown is open, lift every ancestor above the sibling parts. */
+html body .monaco-workbench div:has(.menubar-menu-items-holder) {
+    z-index: 3000 !important;
+}
+
+
+/* =========================================================
+   PER-ZONE TINT DRIVEN BY THE OPACITY SLIDERS
+   ========================================================= */
+
+html body .monaco-workbench.dsn-nova-wallpaper-enabled .part.activitybar {
+    background: linear-gradient(160deg, rgba(10, 16, 25, calc(var(--dsn-activity-opacity, 0.82) * 0.6)), rgba(8, 13, 20, calc(var(--dsn-activity-opacity, 0.82) * 0.8))), var(--dsn-nova-wallpaper-image, none) var(--dsn-nova-wallpaper-position, center) / var(--dsn-nova-wallpaper-size, cover) var(--dsn-nova-wallpaper-repeat, no-repeat) fixed !important;
+}
+
+html body .monaco-workbench.dsn-nova-wallpaper-enabled .part.panel {
+    background: linear-gradient(160deg, rgba(10, 16, 25, calc(var(--dsn-panel-opacity, 0.84) * 0.6)), rgba(8, 13, 20, calc(var(--dsn-panel-opacity, 0.84) * 0.8))), var(--dsn-nova-wallpaper-image, none) var(--dsn-nova-wallpaper-position, center) / var(--dsn-nova-wallpaper-size, cover) var(--dsn-nova-wallpaper-repeat, no-repeat) fixed !important;
+}
+
+html body .monaco-workbench.dsn-nova-wallpaper-enabled .part.statusbar {
+    background: linear-gradient(160deg, rgba(10, 16, 25, calc(var(--dsn-status-opacity, 0.92) * 0.6)), rgba(8, 13, 20, calc(var(--dsn-status-opacity, 0.92) * 0.8))), var(--dsn-nova-wallpaper-image, none) var(--dsn-nova-wallpaper-position, center) / var(--dsn-nova-wallpaper-size, cover) var(--dsn-nova-wallpaper-repeat, no-repeat) fixed !important;
+}
+
+html body .monaco-workbench.dsn-nova-wallpaper-enabled .part.auxiliarybar {
+    background: linear-gradient(160deg, rgba(10, 16, 25, calc(var(--dsn-sidebar-opacity, 0.78) * 0.6)), rgba(8, 13, 20, calc(var(--dsn-sidebar-opacity, 0.78) * 0.8))), var(--dsn-nova-wallpaper-image, none) var(--dsn-nova-wallpaper-position, center) / var(--dsn-nova-wallpaper-size, cover) var(--dsn-nova-wallpaper-repeat, no-repeat) fixed !important;
+}
+
+html body.dsn-nova-light-mode .monaco-workbench.dsn-nova-wallpaper-enabled .part.sidebar,
+html body.dsn-nova-light-mode .monaco-workbench.dsn-nova-wallpaper-enabled .part.auxiliarybar {
+    background: linear-gradient(160deg, rgba(240, 244, 249, calc(var(--dsn-sidebar-opacity, 0.78) * 0.6)), rgba(226, 232, 240, calc(var(--dsn-sidebar-opacity, 0.78) * 0.67))), var(--dsn-nova-wallpaper-image, none) var(--dsn-nova-wallpaper-position, center) / var(--dsn-nova-wallpaper-size, cover) var(--dsn-nova-wallpaper-repeat, no-repeat) fixed !important;
+}
+
+html body.dsn-nova-light-mode .monaco-workbench.dsn-nova-wallpaper-enabled .part.activitybar {
+    background: linear-gradient(180deg, rgba(240, 244, 249, calc(var(--dsn-activity-opacity, 0.82) * 0.9)), rgba(226, 232, 240, calc(var(--dsn-activity-opacity, 0.82) * 0.95))), var(--dsn-nova-wallpaper-image, none) var(--dsn-nova-wallpaper-position, center) / var(--dsn-nova-wallpaper-size, cover) var(--dsn-nova-wallpaper-repeat, no-repeat) fixed !important;
+}
+
+html body.dsn-nova-light-mode .monaco-workbench.dsn-nova-wallpaper-enabled .part.panel {
+    background: linear-gradient(160deg, rgba(240, 244, 249, calc(var(--dsn-panel-opacity, 0.84) * 0.7)), rgba(226, 232, 240, calc(var(--dsn-panel-opacity, 0.84) * 0.78))), var(--dsn-nova-wallpaper-image, none) var(--dsn-nova-wallpaper-position, center) / var(--dsn-nova-wallpaper-size, cover) var(--dsn-nova-wallpaper-repeat, no-repeat) fixed !important;
+}
+
+html body.dsn-nova-light-mode .monaco-workbench.dsn-nova-wallpaper-enabled .part.statusbar {
+    background: linear-gradient(160deg, rgba(240, 244, 249, calc(var(--dsn-status-opacity, 0.92) * 0.65)), rgba(226, 232, 240, calc(var(--dsn-status-opacity, 0.92) * 0.72))), var(--dsn-nova-wallpaper-image, none) var(--dsn-nova-wallpaper-position, center) / var(--dsn-nova-wallpaper-size, cover) var(--dsn-nova-wallpaper-repeat, no-repeat) fixed !important;
+}
+/* =========================================================
+   WINDOWS: pages (Settings, Extensions, Keyboard Shortcuts) and
+   popups (Command Palette, dialogs, notifications, hovers, widgets).
+   Opacity and blur come from the Windows sliders; colors follow the
+   active theme so text stays readable in Light and Dark.
+   ========================================================= */
+
+:root {
+    --dsn-page-opacity: 0.85;
+    --dsn-popup-opacity: 0.9;
+    --dsn-popup-blur: 12px;
+    --dsn-page-bg: rgba(8, 13, 20, var(--dsn-page-opacity));
+    --dsn-popup-bg: rgba(14, 22, 34, var(--dsn-popup-opacity));
+}
+
+body.dsn-nova-light-mode {
+    --dsn-page-bg: rgba(244, 247, 251, var(--dsn-page-opacity));
+    --dsn-popup-bg: rgba(248, 250, 253, var(--dsn-popup-opacity));
+}
+
+html body .monaco-workbench .part.editor .settings-editor,
+html body .monaco-workbench .part.editor .keybindings-editor,
+html body .monaco-workbench .part.editor .extension-editor,
+html body .monaco-workbench .part.editor .preferences-editor {
+    background-color: var(--dsn-page-bg) !important;
+}
+
+html body .monaco-workbench .quick-input-widget,
+html body .monaco-workbench .suggest-widget,
+html body .monaco-workbench .editor-widget,
+html body .monaco-workbench .monaco-dialog-box,
+html body .monaco-workbench .notifications-center,
+html body .monaco-workbench .notification-toast,
+html body .monaco-workbench .action-widget,
+html body .monaco-workbench .monaco-hover,
+html body .monaco-workbench .monaco-editor .suggest-widget {
+    background: var(--dsn-popup-bg) !important;
+    -webkit-backdrop-filter: blur(var(--dsn-popup-blur)) !important;
+    backdrop-filter: blur(var(--dsn-popup-blur)) !important;
+}
+
+html body .monaco-workbench .quick-input-widget::before,
+html body .monaco-workbench .monaco-dialog-box::before,
+html body .monaco-workbench .notifications-center::before,
+html body .monaco-workbench .notification-toast::before,
+html body .monaco-workbench .action-widget::before,
+html body .monaco-workbench .monaco-hover::before {
+    display: none !important;
+}
+
+html body .monaco-workbench .quick-input-widget {
+    --vscode-quickInput-background: transparent;
+}
+
+html body.dsn-nova-light-mode .monaco-workbench .quick-input-widget,
+html body.dsn-nova-light-mode .monaco-workbench .monaco-dialog-box,
+html body.dsn-nova-light-mode .monaco-workbench .notifications-center,
+html body.dsn-nova-light-mode .monaco-workbench .notification-toast {
+    border-color: rgba(30, 50, 80, 0.3) !important;
+    box-shadow: 0 12px 36px rgba(20, 40, 70, 0.25) !important;
+}
+/* =========================================================
+   LIGHT THEME: surfaces that were dark-only in the base stylesheet
+   ========================================================= */
+
+html body.dsn-nova-light-mode .monaco-workbench .part.editor > .content .editor-group-container .title.tabs {
+    background: linear-gradient(180deg, rgba(244, 247, 251, 0.9), rgba(232, 238, 246, 0.86)) !important;
+}
+
+html body.dsn-nova-light-mode .monaco-workbench .tabs-container .tab.active {
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.94), rgba(238, 243, 250, 0.9)) !important;
+    box-shadow: 0 -2px 0 var(--dsn-accent-blue) inset, 0 1px 0 rgba(255, 255, 255, 0.6) inset;
+}
+
+html body.dsn-nova-light-mode .monaco-workbench .breadcrumbs-control {
+    background: rgba(244, 247, 251, 0.62) !important;
+    border-bottom-color: rgba(48, 64, 80, 0.14);
+}
+
+html body.dsn-nova-light-mode .monaco-workbench .part.titlebar .command-center-center,
+html body.dsn-nova-light-mode .monaco-workbench .part.titlebar .agent-status-pill {
+    background: linear-gradient(110deg, rgba(255, 255, 255, 0.6), rgba(222, 231, 243, 0.62)) !important;
+    border-color: rgba(30, 50, 80, 0.28) !important;
+}
+
+html body.dsn-nova-light-mode .monaco-workbench .monaco-scrollable-element .scrollbar .slider {
+    background: rgba(60, 90, 125, 0.34) !important;
+    border-color: rgba(30, 50, 80, 0.12);
+}
+
+html body.dsn-nova-light-mode .monaco-workbench .monaco-scrollable-element .scrollbar .slider:hover {
+    background: rgba(10, 100, 160, 0.5) !important;
+}
+/* Wallpaper limited to the editor area: other parts get a plain tinted surface. */
+html body .monaco-workbench.dsn-nova-wp-editor-only.dsn-nova-wallpaper-enabled .part.sidebar { background: rgba(14, 21, 31, calc(0.55 + var(--dsn-sidebar-opacity, 0.8) * 0.45)) !important; }
+html body.dsn-nova-light-mode .monaco-workbench.dsn-nova-wp-editor-only.dsn-nova-wallpaper-enabled .part.sidebar { background: rgba(240, 244, 249, calc(0.55 + var(--dsn-sidebar-opacity, 0.8) * 0.45)) !important; }
+html body .monaco-workbench.dsn-nova-wp-editor-only.dsn-nova-wallpaper-enabled .part.auxiliarybar { background: rgba(14, 21, 31, calc(0.55 + var(--dsn-sidebar-opacity, 0.8) * 0.45)) !important; }
+html body.dsn-nova-light-mode .monaco-workbench.dsn-nova-wp-editor-only.dsn-nova-wallpaper-enabled .part.auxiliarybar { background: rgba(240, 244, 249, calc(0.55 + var(--dsn-sidebar-opacity, 0.8) * 0.45)) !important; }
+html body .monaco-workbench.dsn-nova-wp-editor-only.dsn-nova-wallpaper-enabled .part.activitybar { background: rgba(30, 40, 53, calc(0.55 + var(--dsn-activity-opacity, 0.8) * 0.45)) !important; }
+html body.dsn-nova-light-mode .monaco-workbench.dsn-nova-wp-editor-only.dsn-nova-wallpaper-enabled .part.activitybar { background: rgba(226, 232, 240, calc(0.55 + var(--dsn-activity-opacity, 0.8) * 0.45)) !important; }
+html body .monaco-workbench.dsn-nova-wp-editor-only.dsn-nova-wallpaper-enabled .part.panel { background: rgba(8, 14, 22, calc(0.55 + var(--dsn-panel-opacity, 0.8) * 0.45)) !important; }
+html body.dsn-nova-light-mode .monaco-workbench.dsn-nova-wp-editor-only.dsn-nova-wallpaper-enabled .part.panel { background: rgba(240, 244, 249, calc(0.55 + var(--dsn-panel-opacity, 0.8) * 0.45)) !important; }
+html body .monaco-workbench.dsn-nova-wp-editor-only.dsn-nova-wallpaper-enabled .part.statusbar { background: rgba(11, 20, 31, calc(0.55 + var(--dsn-status-opacity, 0.8) * 0.45)) !important; }
+html body.dsn-nova-light-mode .monaco-workbench.dsn-nova-wp-editor-only.dsn-nova-wallpaper-enabled .part.statusbar { background: rgba(226, 232, 240, calc(0.55 + var(--dsn-status-opacity, 0.8) * 0.45)) !important; }
+html body .monaco-workbench.dsn-nova-wp-editor-only.dsn-nova-wallpaper-enabled .part.titlebar { background: rgba(10, 16, 25, 0.88) !important; }
+html body.dsn-nova-light-mode .monaco-workbench.dsn-nova-wp-editor-only.dsn-nova-wallpaper-enabled .part.titlebar { background: rgba(240, 244, 249, 0.88) !important; }
+
+/* Inner containers must not repaint opaque colors over the opacity sliders. */
+html body .monaco-workbench .settings-editor .settings-body,
+html body .monaco-workbench .settings-editor .settings-tree-container,
+html body .monaco-workbench .settings-editor .monaco-list,
+html body .monaco-workbench .settings-editor .monaco-list-rows,
+html body .monaco-workbench .settings-editor .settings-header,
+html body .monaco-workbench .settings-editor .settings-toc-container,
+html body .monaco-workbench .extension-editor .monaco-list-rows,
+html body .monaco-workbench .quick-input-widget .quick-input-list,
+html body .monaco-workbench .quick-input-widget .quick-input-list .monaco-list,
+html body .monaco-workbench .quick-input-widget .quick-input-list .monaco-list-rows,
+html body .monaco-workbench .quick-input-widget .quick-input-header,
+html body .monaco-workbench .notifications-center .notifications-list-container,
+html body .monaco-workbench .notifications-center .monaco-list-rows,
+html body .monaco-workbench .monaco-dialog-box .dialog-message-row {
+    background-color: transparent !important;
+}
+/* Horizon: veil the sidebars so the image's own lettering does not clash with UI text. */
+html body .monaco-workbench.dsn-nova-horizon-mode.dsn-nova-wallpaper-enabled:not(.dsn-nova-wp-editor-only) .part.sidebar {
+    background: linear-gradient(rgba(5,10,20, 0.80), rgba(5,10,20, 0.80)), var(--dsn-nova-wallpaper-image, none) var(--dsn-nova-wallpaper-position, center) / var(--dsn-nova-wallpaper-size, cover) var(--dsn-nova-wallpaper-repeat, no-repeat) fixed !important;
+}
+html body .monaco-workbench.dsn-nova-horizon-mode.dsn-nova-wallpaper-enabled:not(.dsn-nova-wp-editor-only) .part.auxiliarybar {
+    background: linear-gradient(rgba(5,10,20, 0.80), rgba(5,10,20, 0.80)), var(--dsn-nova-wallpaper-image, none) var(--dsn-nova-wallpaper-position, center) / var(--dsn-nova-wallpaper-size, cover) var(--dsn-nova-wallpaper-repeat, no-repeat) fixed !important;
+}
+html body .monaco-workbench.dsn-nova-horizon-mode.dsn-nova-wallpaper-enabled:not(.dsn-nova-wp-editor-only) .part.activitybar {
+    background: linear-gradient(rgba(4,8,16, 0.88), rgba(4,8,16, 0.88)), var(--dsn-nova-wallpaper-image, none) var(--dsn-nova-wallpaper-position, center) / var(--dsn-nova-wallpaper-size, cover) var(--dsn-nova-wallpaper-repeat, no-repeat) fixed !important;
+}
+html body .monaco-workbench.dsn-nova-horizon-mode.dsn-nova-wallpaper-enabled:not(.dsn-nova-wp-editor-only) .part.panel {
+    background: linear-gradient(rgba(4,8,16, 0.84), rgba(4,8,16, 0.84)), var(--dsn-nova-wallpaper-image, none) var(--dsn-nova-wallpaper-position, center) / var(--dsn-nova-wallpaper-size, cover) var(--dsn-nova-wallpaper-repeat, no-repeat) fixed !important;
+}
+html body .monaco-workbench.dsn-nova-horizon-mode.dsn-nova-wallpaper-enabled:not(.dsn-nova-wp-editor-only) .part.statusbar {
+    background: linear-gradient(rgba(4,8,16, 0.90), rgba(4,8,16, 0.90)), var(--dsn-nova-wallpaper-image, none) var(--dsn-nova-wallpaper-position, center) / var(--dsn-nova-wallpaper-size, cover) var(--dsn-nova-wallpaper-repeat, no-repeat) fixed !important;
+}
+html body .monaco-workbench.dsn-nova-horizon-mode.dsn-nova-wallpaper-enabled:not(.dsn-nova-wp-editor-only) .part.titlebar {
+    background: linear-gradient(rgba(4,8,16, 0.90), rgba(4,8,16, 0.90)), var(--dsn-nova-wallpaper-image, none) var(--dsn-nova-wallpaper-position, center) / var(--dsn-nova-wallpaper-size, cover) var(--dsn-nova-wallpaper-repeat, no-repeat) fixed !important;
+}
+
+html body .monaco-workbench.dsn-nova-horizon-mode .monaco-editor .view-line span {
+    text-shadow: 0 0 2px rgba(0, 0, 0, 0.95), 0 1px 3px rgba(0, 0, 0, 0.85) !important;
+}
+
+/* =========================================================
+   NEON accents (borders and scrollbar), editable from the DSN panel.
+   Dark and Horizon only; each can be switched off with 0.
+   ========================================================= */
+
+:root {
+    --dsn-neon-color: #00e5ff;
+    --dsn-neon-border: 0.5;
+    --dsn-neon-scroll: 0.5;
+}
+
+html body:not(.dsn-nova-light-mode):not(.dsn-nova-neon-border-off) .monaco-workbench {
+    --dsn-neon-line: color-mix(in srgb, var(--dsn-neon-color) calc(var(--dsn-neon-border) * 85%), transparent);
+    --dsn-neon-glow: color-mix(in srgb, var(--dsn-neon-color) calc(var(--dsn-neon-border) * 40%), transparent);
+}
+
+html body:not(.dsn-nova-light-mode):not(.dsn-nova-neon-border-off) .monaco-workbench .part.sidebar {
+    box-shadow: inset -1px 0 0 var(--dsn-neon-line), inset -10px 0 14px -10px var(--dsn-neon-glow) !important;
+}
+
+html body:not(.dsn-nova-light-mode):not(.dsn-nova-neon-border-off) .monaco-workbench .part.auxiliarybar {
+    box-shadow: inset 1px 0 0 var(--dsn-neon-line), inset 10px 0 14px -10px var(--dsn-neon-glow) !important;
+}
+
+html body:not(.dsn-nova-light-mode):not(.dsn-nova-neon-border-off) .monaco-workbench .part.activitybar {
+    box-shadow: inset -1px 0 0 var(--dsn-neon-line) !important;
+}
+
+html body:not(.dsn-nova-light-mode):not(.dsn-nova-neon-border-off) .monaco-workbench .part.panel {
+    box-shadow: inset 0 1px 0 var(--dsn-neon-line), inset 0 10px 14px -10px var(--dsn-neon-glow) !important;
+}
+
+html body:not(.dsn-nova-light-mode):not(.dsn-nova-neon-border-off) .monaco-workbench .part.statusbar {
+    box-shadow: inset 0 1px 0 var(--dsn-neon-line) !important;
+}
+
+html body:not(.dsn-nova-light-mode):not(.dsn-nova-neon-border-off) .monaco-workbench .part.titlebar {
+    box-shadow: inset 0 -1px 0 var(--dsn-neon-line) !important;
+}
+
+html body:not(.dsn-nova-light-mode):not(.dsn-nova-neon-border-off) .monaco-workbench .tabs-container .tab.active {
+    box-shadow: inset 0 2px 0 var(--dsn-neon-line), 0 0 12px -4px var(--dsn-neon-glow) !important;
+}
+
+html body:not(.dsn-nova-light-mode):not(.dsn-nova-neon-border-off) .monaco-workbench .monaco-inputbox.synthetic-focus,
+html body:not(.dsn-nova-light-mode):not(.dsn-nova-neon-border-off) .monaco-workbench .monaco-editor .find-widget {
+    box-shadow: 0 0 10px -2px var(--dsn-neon-glow) !important;
+}
+
+html body:not(.dsn-nova-light-mode):not(.dsn-nova-neon-scroll-off) .monaco-workbench .monaco-scrollable-element > .scrollbar > .slider {
+    background: color-mix(in srgb, var(--dsn-neon-color) calc(var(--dsn-neon-scroll) * 55%), transparent) !important;
+    box-shadow: 0 0 calc(var(--dsn-neon-scroll) * 10px) color-mix(in srgb, var(--dsn-neon-color) calc(var(--dsn-neon-scroll) * 80%), transparent) !important;
+    border-radius: 6px;
+}
+
+html body:not(.dsn-nova-light-mode):not(.dsn-nova-neon-scroll-off) .monaco-workbench .monaco-scrollable-element > .scrollbar > .slider:hover,
+html body:not(.dsn-nova-light-mode):not(.dsn-nova-neon-scroll-off) .monaco-workbench .monaco-scrollable-element > .scrollbar > .slider.active {
+    background: color-mix(in srgb, var(--dsn-neon-color) calc(var(--dsn-neon-scroll) * 90%), transparent) !important;
+}

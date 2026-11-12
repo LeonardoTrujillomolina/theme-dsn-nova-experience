@@ -1,0 +1,89 @@
+/* =========================================================
+   DSN NOVA GEOMETRY OVERLAY
+   Created by dsn-nova-runtime.js.
+   ========================================================= */
+
+.dsn-nova-geometry-layer {
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    overflow: hidden;
+    pointer-events: none;
+
+    opacity:
+        var(--dsn-geometry-opacity);
+
+    background:
+        linear-gradient(
+            132deg,
+            transparent 0%,
+            transparent 54%,
+            rgba(210, 224, 236, 0.13) 54.1%,
+            rgba(210, 224, 236, 0.13) 56.1%,
+            transparent 56.2%,
+            transparent 100%
+        ),
+        linear-gradient(
+            132deg,
+            transparent 0%,
+            transparent 68%,
+            rgba(117, 143, 166, 0.10) 68.1%,
+            rgba(117, 143, 166, 0.10) 75%,
+            transparent 75.1%,
+            transparent 100%
+        ),
+        linear-gradient(
+            315deg,
+            transparent 0%,
+            transparent 72%,
+            rgba(210, 224, 236, 0.08) 72.1%,
+            rgba(210, 224, 236, 0.08) 78%,
+            transparent 78.1%,
+            transparent 100%
+        );
+}
+
+body.dsn-nova-light-mode
+.dsn-nova-geometry-layer {
+    opacity:
+        calc(
+            var(--dsn-geometry-opacity) * 0.78
+        );
+
+    background:
+        linear-gradient(
+            132deg,
+            transparent 0%,
+            transparent 54%,
+            rgba(255, 255, 255, 0.72) 54.1%,
+            rgba(255, 255, 255, 0.72) 56.1%,
+            transparent 56.2%,
+            transparent 100%
+        ),
+        linear-gradient(
+            132deg,
+            transparent 0%,
+            transparent 68%,
+            rgba(55, 74, 93, 0.15) 68.1%,
+            rgba(55, 74, 93, 0.15) 75%,
+            transparent 75.1%,
+            transparent 100%
+        ),
+        linear-gradient(
+            315deg,
+            transparent 0%,
+            transparent 72%,
+            rgba(255, 255, 255, 0.44) 72.1%,
+            rgba(255, 255, 255, 0.44) 78%,
+            transparent 78.1%,
+            transparent 100%
+        );
+}
+
+/* Keep interactive surfaces above decoration */
+
+.monaco-workbench .part,
+.monaco-workbench .context-view {
+    position: relative;
+    z-index: 100;
+}

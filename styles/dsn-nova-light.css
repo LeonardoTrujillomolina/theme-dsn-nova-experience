@@ -1,0 +1,117 @@
+/* =========================================================
+   DSN NOVA LIGHT ATMOSPHERE
+   Applied when body contains dsn-nova-light-mode.
+   ========================================================= */
+
+body.dsn-nova-light-mode {
+    background-color: #D6DEE8 !important;
+}
+
+body.dsn-nova-light-mode .monaco-workbench {
+    background-color: #D6DEE8 !important;
+}
+
+body.dsn-nova-light-mode .monaco-workbench::before {
+    opacity: 0;
+}
+
+body.dsn-nova-light-mode .monaco-workbench::after {
+    background-color: #D6DEE8;
+    filter:
+        saturate(var(--dsn-wallpaper-saturation, 0.9))
+        blur(var(--dsn-wallpaper-blur, 0px));
+}
+
+/* Wallpaper is handled dynamically by dsn-nova-generated.css */
+
+body.dsn-nova-light-mode
+.monaco-workbench
+.part.titlebar {
+    background:
+        linear-gradient(
+            125deg,
+            rgba(235, 240, 246, 0.94),
+            rgba(198, 208, 219, 0.90)
+        ) !important;
+
+    border-bottom:
+        1px solid
+        rgba(52, 68, 84, 0.22) !important;
+}
+
+body.dsn-nova-light-mode
+.monaco-workbench
+.part.activitybar {
+    background:
+        linear-gradient(
+            180deg,
+            rgba(224, 230, 237, 0.88),
+            rgba(194, 204, 215, 0.84)
+        ) !important;
+
+    color: #172432 !important;
+    border-right:
+        1px solid
+        rgba(48, 64, 80, 0.28) !important;
+}
+
+body.dsn-nova-light-mode
+.monaco-workbench
+.part.sidebar {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(228, 234, 241, 0.82),
+            rgba(197, 207, 218, 0.78)
+        ) !important;
+
+    color: #172432 !important;
+    border-right:
+        1px solid
+        rgba(48, 64, 80, 0.30) !important;
+}
+
+body.dsn-nova-light-mode
+.monaco-workbench
+.part.statusbar {
+    background:
+        linear-gradient(
+            110deg,
+            rgba(230, 235, 241, 0.94),
+            rgba(192, 202, 214, 0.92)
+        ) !important;
+
+    color: #172432 !important;
+    border-top:
+        1px solid
+        rgba(48, 64, 80, 0.28) !important;
+}
+
+/*
+   Editor and panel are light and translucent so the dark
+   syntax colors of the Light theme stay readable.
+*/
+
+body.dsn-nova-light-mode
+.monaco-workbench
+.part.editor {
+    background-color:
+        rgba(
+            238,
+            242,
+            247,
+            var(--dsn-editor-opacity)
+        ) !important;
+}
+
+body.dsn-nova-light-mode
+.monaco-workbench
+.part.panel {
+    background-color:
+        rgba(
+            227,
+            232,
+            239,
+            var(--dsn-panel-opacity)
+        ) !important;
+}

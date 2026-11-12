@@ -1,0 +1,210 @@
+{
+  "name": "DSN Nova Dark",
+  "type": "dark",
+  "semanticHighlighting": true,
+  "colors": {
+    "focusBorder": "#66C8FF",
+    "foreground": "#DCE3ED",
+    "descriptionForeground": "#9AA8BA",
+    "errorForeground": "#FF5266",
+    "icon.foreground": "#CBD5E1",
+    "editor.background": "#0B1017",
+    "minimap.background": "#0B101744",
+    "minimapSlider.background": "#8AA2BC33",
+    "minimapSlider.hoverBackground": "#8AA2BC55",
+    "minimapSlider.activeBackground": "#8AA2BC77",
+    "editor.foreground": "#DCE3ED",
+    "editorLineNumber.foreground": "#657183",
+    "editorLineNumber.activeForeground": "#E6EDF5",
+    "editorCursor.foreground": "#66C8FF",
+    "editor.selectionBackground": "#264E70",
+    "editor.lineHighlightBackground": "#FFFFFF08",
+    "activityBar.background": "#242C38",
+    "activityBar.foreground": "#F0F5FA",
+    "activityBar.inactiveForeground": "#A0ADBF",
+    "activityBar.border": "#526072",
+    "sideBar.background": "#101720",
+    "sideBar.foreground": "#D0DAE6",
+    "sideBar.border": "#526072",
+    "sideBarTitle.foreground": "#E6EDF5",
+    "sideBarSectionHeader.background": "#18212C",
+    "list.activeSelectionBackground": "#354253",
+    "list.activeSelectionForeground": "#FFFFFF",
+    "list.inactiveSelectionBackground": "#273240",
+    "list.hoverBackground": "#FFFFFF0D",
+    "titleBar.activeBackground": "#10151D",
+    "titleBar.activeForeground": "#E6EDF5",
+    "titleBar.inactiveBackground": "#10151D",
+    "titleBar.inactiveForeground": "#98A5B5",
+    "editorGroupHeader.tabsBackground": "#101720",
+    "tab.activeBackground": "#0B1017",
+    "tab.activeForeground": "#FFFFFF",
+    "tab.inactiveBackground": "#131B25",
+    "tab.inactiveForeground": "#AAB7C7",
+    "tab.activeBorder": "#DCE3ED",
+    "tab.border": "#2C3745",
+    "breadcrumb.background": "#0B1017",
+    "breadcrumb.foreground": "#AAB7C7",
+    "panel.background": "#0D141D",
+    "panel.border": "#526072",
+    "panelTitle.activeForeground": "#F0F5FA",
+    "panelTitle.inactiveForeground": "#98A5B5",
+    "panelTitle.activeBorder": "#DCE3ED",
+    "terminal.background": "#0D141D",
+    "terminal.foreground": "#DCE3ED",
+    "terminal.ansiBlue": "#66C8FF",
+    "terminal.ansiGreen": "#8CC66A",
+    "terminal.ansiRed": "#FF5266",
+    "terminal.ansiYellow": "#E8C78A",
+    "statusBar.background": "#202A37",
+    "statusBar.foreground": "#E6EDF5",
+    "statusBar.border": "#526072",
+    "input.background": "#18212C",
+    "input.foreground": "#E6EDF5",
+    "input.border": "#526072",
+    "dropdown.background": "#18212C",
+    "dropdown.foreground": "#E6EDF5",
+    "editorWidget.background": "#18212C",
+    "editorWidget.border": "#526072",
+    "menu.background": "#18212C",
+    "menu.foreground": "#E6EDF5",
+    "notifications.background": "#18212C",
+    "notifications.foreground": "#E6EDF5",
+    "editorWarning.foreground": "#F2C94C",
+    "list.warningForeground": "#F2C94C",
+    "gitDecoration.modifiedResourceForeground": "#F2C94C",
+    "editorGutter.modifiedBackground": "#F2C94C",
+    "notificationsWarningIcon.foreground": "#F2C94C",
+    "problemsWarningIcon.foreground": "#F2C94C",
+    "editorOverviewRuler.warningForeground": "#F2C94C"
+  },
+  "tokenColors": [
+    {
+      "name": "Comments",
+      "scope": [
+        "comment"
+      ],
+      "settings": {
+        "foreground": "#8492A6"
+      }
+    },
+    {
+      "name": "DSN cyan",
+      "scope": [
+        "keyword",
+        "keyword.control",
+        "storage",
+        "storage.type",
+        "storage.modifier",
+        "entity.name.tag",
+        "punctuation.definition.tag",
+        "markup.heading"
+      ],
+      "settings": {
+        "foreground": "#66C8FF"
+      }
+    },
+    {
+      "name": "DSN blue",
+      "scope": [
+        "entity.name.function",
+        "support.function",
+        "meta.function-call",
+        "variable.function",
+        "variable.other.readwrite.alias",
+        "meta.import variable.other.readwrite",
+        "meta.import entity.name.type"
+      ],
+      "settings": {
+        "foreground": "#6C9EFF"
+      }
+    },
+    {
+      "name": "DSN purple",
+      "scope": [
+        "entity.name.type",
+        "entity.name.class",
+        "entity.name.namespace",
+        "support.type",
+        "support.class",
+        "entity.other.inherited-class",
+        "variable.other.property",
+        "variable.other.object.property",
+        "support.variable.property",
+        "meta.object-literal.key",
+        "entity.other.attribute-name"
+      ],
+      "settings": {
+        "foreground": "#B794F6"
+      }
+    },
+    {
+      "name": "DSN green",
+      "scope": [
+        "string",
+        "string.quoted",
+        "markup.inserted"
+      ],
+      "settings": {
+        "foreground": "#7EE2A8"
+      }
+    },
+    {
+      "name": "DSN orange",
+      "scope": [
+        "constant.numeric",
+        "meta.decorator",
+        "entity.name.function.decorator",
+        "punctuation.decorator",
+        "storage.type.annotation"
+      ],
+      "settings": {
+        "foreground": "#FFA95A"
+      }
+    },
+    {
+      "name": "DSN red",
+      "scope": [
+        "constant.language",
+        "constant.other",
+        "support.constant",
+        "variable.other.constant",
+        "invalid"
+      ],
+      "settings": {
+        "foreground": "#FF5266"
+      }
+    },
+    {
+      "name": "DSN gold",
+      "scope": [
+        "invalid.deprecated",
+        "markup.changed",
+        "markup.deprecated"
+      ],
+      "settings": {
+        "foreground": "#F2C94C"
+      }
+    }
+  ],
+  "semanticTokenColors": {
+    "parameter": "#DCE3ED",
+    "variable": "#DCE3ED",
+    "keyword": "#66C8FF",
+    "function": "#6C9EFF",
+    "method": "#6C9EFF",
+    "class": "#B794F6",
+    "type": "#B794F6",
+    "interface": "#B794F6",
+    "enum": "#B794F6",
+    "namespace": "#B794F6",
+    "struct": "#B794F6",
+    "typeParameter": "#B794F6",
+    "property": "#B794F6",
+    "decorator": "#FFA95A",
+    "number": "#FFA95A",
+    "enumMember": "#FF5266",
+    "variable.readonly": "#FF5266",
+    "variable.defaultLibrary": "#FF5266"
+  }
+}

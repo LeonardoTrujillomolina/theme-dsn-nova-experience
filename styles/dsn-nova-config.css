@@ -1,0 +1,41 @@
+/* =========================================================
+   DSN NOVA USER CONFIGURATION
+   This file will eventually be generated automatically.
+   ========================================================= */
+
+:root {
+    /* Current appearance: dark or light */
+    --dsn-current-appearance: dark;
+
+    /* Wallpaper */
+    --dsn-wallpaper-enabled: 1;
+    --dsn-wallpaper-opacity: 0.42;
+    --dsn-wallpaper-brightness: 0.82;
+    --dsn-wallpaper-saturation: 0.90;
+    --dsn-wallpaper-blur: 0px;
+
+    /* Glass */
+    --dsn-glass-enabled: 1;
+    --dsn-glass-blur: 18px;
+    --dsn-glass-saturation: 118%;
+
+    /* Surfaces */
+    --dsn-editor-opacity: 0.82;
+    --dsn-sidebar-opacity: 0.78;
+    --dsn-activity-opacity: 0.82;
+    --dsn-panel-opacity: 0.84;
+    --dsn-status-opacity: 0.92;
+    --dsn-title-opacity: 0.94;
+
+    /* Geometry */
+    --dsn-geometry-opacity: 0.38;
+    --dsn-grid-opacity: 0.20;
+
+    /* Accents */
+    --dsn-accent-primary: #48BFFF;
+    --dsn-accent-secondary: #6DE5FF;
+    --dsn-accent-danger: #FF334F;
+
+    /* Development */
+    --dsn-debug-outline: 0;
+}

@@ -1,0 +1,211 @@
+{
+  "name": "DSN Nova Horizon",
+  "type": "dark",
+  "semanticHighlighting": true,
+  "colors": {
+    "editorGutter.commentRangeForeground": "#0A1B2C",
+    "focusBorder": "#5CB8FF",
+    "foreground": "#DCE3ED",
+    "descriptionForeground": "#9AA8BA",
+    "errorForeground": "#FF6B6B",
+    "icon.foreground": "#CBD5E1",
+    "editor.background": "#050912",
+    "minimap.background": "#05091244",
+    "minimapSlider.background": "#8AA2BC33",
+    "minimapSlider.hoverBackground": "#8AA2BC55",
+    "minimapSlider.activeBackground": "#8AA2BC77",
+    "editor.foreground": "#DCE3ED",
+    "editorLineNumber.foreground": "#657183",
+    "editorLineNumber.activeForeground": "#E6EDF5",
+    "editorCursor.foreground": "#5CB8FF",
+    "editor.selectionBackground": "#1E4A7A",
+    "editor.lineHighlightBackground": "#FFFFFF08",
+    "activityBar.background": "#18233A",
+    "activityBar.foreground": "#F0F5FA",
+    "activityBar.inactiveForeground": "#A0ADBF",
+    "activityBar.border": "#526072",
+    "sideBar.background": "#090E19",
+    "sideBar.foreground": "#D0DAE6",
+    "sideBar.border": "#526072",
+    "sideBarTitle.foreground": "#E6EDF5",
+    "sideBarSectionHeader.background": "#0E1626",
+    "list.activeSelectionBackground": "#25365A",
+    "list.activeSelectionForeground": "#FFFFFF",
+    "list.inactiveSelectionBackground": "#1A2840",
+    "list.hoverBackground": "#FFFFFF0D",
+    "titleBar.activeBackground": "#080D18",
+    "titleBar.activeForeground": "#E6EDF5",
+    "titleBar.inactiveBackground": "#080D18",
+    "titleBar.inactiveForeground": "#98A5B5",
+    "editorGroupHeader.tabsBackground": "#090E19",
+    "tab.activeBackground": "#050912",
+    "tab.activeForeground": "#FFFFFF",
+    "tab.inactiveBackground": "#0B1220",
+    "tab.inactiveForeground": "#AAB7C7",
+    "tab.activeBorder": "#DCE3ED",
+    "tab.border": "#1C2A44",
+    "breadcrumb.background": "#050912",
+    "breadcrumb.foreground": "#AAB7C7",
+    "panel.background": "#070C16",
+    "panel.border": "#526072",
+    "panelTitle.activeForeground": "#F0F5FA",
+    "panelTitle.inactiveForeground": "#98A5B5",
+    "panelTitle.activeBorder": "#DCE3ED",
+    "terminal.background": "#070C16",
+    "terminal.foreground": "#DCE3ED",
+    "terminal.ansiBlue": "#5CB8FF",
+    "terminal.ansiGreen": "#8CC66A",
+    "terminal.ansiRed": "#FF6B6B",
+    "terminal.ansiYellow": "#E8C78A",
+    "statusBar.background": "#152036",
+    "statusBar.foreground": "#E6EDF5",
+    "statusBar.border": "#526072",
+    "input.background": "#0E1626",
+    "input.foreground": "#E6EDF5",
+    "input.border": "#526072",
+    "dropdown.background": "#0E1626",
+    "dropdown.foreground": "#E6EDF5",
+    "editorWidget.background": "#0E1626",
+    "editorWidget.border": "#526072",
+    "menu.background": "#0E1626",
+    "menu.foreground": "#E6EDF5",
+    "notifications.background": "#0E1626",
+    "notifications.foreground": "#E6EDF5",
+    "editorWarning.foreground": "#FFD27A",
+    "list.warningForeground": "#FFD27A",
+    "gitDecoration.modifiedResourceForeground": "#FFD27A",
+    "editorGutter.modifiedBackground": "#FFD27A",
+    "notificationsWarningIcon.foreground": "#FFD27A",
+    "problemsWarningIcon.foreground": "#FFD27A",
+    "editorOverviewRuler.warningForeground": "#FFD27A"
+  },
+  "tokenColors": [
+    {
+      "name": "Comments",
+      "scope": [
+        "comment"
+      ],
+      "settings": {
+        "foreground": "#8492A6"
+      }
+    },
+    {
+      "name": "DSN cyan",
+      "scope": [
+        "keyword",
+        "keyword.control",
+        "storage",
+        "storage.type",
+        "storage.modifier",
+        "entity.name.tag",
+        "punctuation.definition.tag",
+        "markup.heading"
+      ],
+      "settings": {
+        "foreground": "#5CB8FF"
+      }
+    },
+    {
+      "name": "DSN blue",
+      "scope": [
+        "entity.name.function",
+        "support.function",
+        "meta.function-call",
+        "variable.function",
+        "variable.other.readwrite.alias",
+        "meta.import variable.other.readwrite",
+        "meta.import entity.name.type"
+      ],
+      "settings": {
+        "foreground": "#8FB4FF"
+      }
+    },
+    {
+      "name": "DSN purple",
+      "scope": [
+        "entity.name.type",
+        "entity.name.class",
+        "entity.name.namespace",
+        "support.type",
+        "support.class",
+        "entity.other.inherited-class",
+        "variable.other.property",
+        "variable.other.object.property",
+        "support.variable.property",
+        "meta.object-literal.key",
+        "entity.other.attribute-name"
+      ],
+      "settings": {
+        "foreground": "#D2A8FF"
+      }
+    },
+    {
+      "name": "DSN green",
+      "scope": [
+        "string",
+        "string.quoted",
+        "markup.inserted"
+      ],
+      "settings": {
+        "foreground": "#8CE8C0"
+      }
+    },
+    {
+      "name": "DSN orange",
+      "scope": [
+        "constant.numeric",
+        "meta.decorator",
+        "entity.name.function.decorator",
+        "punctuation.decorator",
+        "storage.type.annotation"
+      ],
+      "settings": {
+        "foreground": "#FFB873"
+      }
+    },
+    {
+      "name": "DSN red",
+      "scope": [
+        "constant.language",
+        "constant.other",
+        "support.constant",
+        "variable.other.constant",
+        "invalid"
+      ],
+      "settings": {
+        "foreground": "#FF6B6B"
+      }
+    },
+    {
+      "name": "DSN gold",
+      "scope": [
+        "invalid.deprecated",
+        "markup.changed",
+        "markup.deprecated"
+      ],
+      "settings": {
+        "foreground": "#FFD27A"
+      }
+    }
+  ],
+  "semanticTokenColors": {
+    "parameter": "#DCE3ED",
+    "variable": "#DCE3ED",
+    "keyword": "#5CB8FF",
+    "function": "#8FB4FF",
+    "method": "#8FB4FF",
+    "class": "#D2A8FF",
+    "type": "#D2A8FF",
+    "interface": "#D2A8FF",
+    "enum": "#D2A8FF",
+    "namespace": "#D2A8FF",
+    "struct": "#D2A8FF",
+    "typeParameter": "#D2A8FF",
+    "property": "#D2A8FF",
+    "decorator": "#FFB873",
+    "number": "#FFB873",
+    "enumMember": "#FF6B6B",
+    "variable.readonly": "#FF6B6B",
+    "variable.defaultLibrary": "#FF6B6B"
+  }
+}
