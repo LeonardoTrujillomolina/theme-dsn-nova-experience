@@ -657,3 +657,22 @@ html body:not(.dsn-nova-light-mode):not(.dsn-nova-neon-scroll-off) .monaco-workb
 html body:not(.dsn-nova-light-mode):not(.dsn-nova-neon-scroll-off) .monaco-workbench .monaco-scrollable-element > .scrollbar > .slider.active {
     background: color-mix(in srgb, var(--dsn-neon-color) calc(var(--dsn-neon-scroll) * 90%), transparent) !important;
 }
+/* Notebooks render in a fixed overlay outside the editor part; lift it above the parts (z-index 100). */
+html body .monaco-workbench > div:has(> .notebookOverlay) {
+    z-index: 150 !important;
+}
+
+/* The notebook overlay sits outside .part.editor, so make its surfaces transparent to show the wallpaper. */
+html body .monaco-workbench.dsn-nova-wallpaper-enabled .notebookOverlay,
+html body .monaco-workbench.dsn-nova-wallpaper-enabled .notebookOverlay .cell-list-container,
+html body .monaco-workbench.dsn-nova-wallpaper-enabled .notebookOverlay .monaco-list,
+html body .monaco-workbench.dsn-nova-wallpaper-enabled .notebookOverlay .monaco-list-rows,
+html body .monaco-workbench.dsn-nova-wallpaper-enabled .notebookOverlay .monaco-list-row,
+html body .monaco-workbench.dsn-nova-wallpaper-enabled .notebookOverlay .cell-inner-container,
+html body .monaco-workbench.dsn-nova-wallpaper-enabled .notebookOverlay .cell-editor-container,
+html body .monaco-workbench.dsn-nova-wallpaper-enabled .notebookOverlay .notebook-toolbar-container,
+html body .monaco-workbench.dsn-nova-wallpaper-enabled .notebookOverlay .monaco-editor,
+html body .monaco-workbench.dsn-nova-wallpaper-enabled .notebookOverlay .monaco-editor-background,
+html body .monaco-workbench.dsn-nova-wallpaper-enabled .notebookOverlay .monaco-editor .margin {
+    background-color: transparent !important;
+}

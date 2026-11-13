@@ -265,10 +265,6 @@ body {
         var(--dsn-surface-dark),
         var(--dsn-editor-opacity)
     ) !important;
-
-    backdrop-filter:
-        blur(calc(var(--dsn-glass-blur) * 0.32))
-        saturate(112%);
 }
 
 .monaco-workbench .editor-group-container {
