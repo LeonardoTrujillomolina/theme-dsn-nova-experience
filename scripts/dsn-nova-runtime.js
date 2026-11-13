@@ -180,6 +180,9 @@
 
                 --vscode-notebook-editorBackground:
                     transparent !important;
+
+                --vscode-notebook-cellEditorBackground:
+                    transparent !important;
             }
 
             /* ---------------------------------------------------------
@@ -607,6 +610,12 @@
 
         workbench.style.setProperty(
             "--vscode-notebook-editorBackground",
+            "transparent",
+            "important"
+        );
+
+        workbench.style.setProperty(
+            "--vscode-notebook-cellEditorBackground",
             "transparent",
             "important"
         );
@@ -1760,6 +1769,11 @@
         window.requestAnimationFrame(() => {
             refreshPending = false;
             refreshRuntime();
+
+            // Discard mutations caused by the runtime itself to avoid a refresh loop.
+            if (observer) {
+                observer.takeRecords();
+            }
         });
     }
 
@@ -1768,9 +1782,23 @@
             observer.disconnect();
         }
 
-        observer = new MutationObserver(
-            scheduleRefresh
-        );
+        // Notebooks, editors and lists mutate class/style constantly; reacting
+        // to them would re-run the whole runtime on every frame.
+        const NOISY = ".notebook-editor, .monaco-editor, .monaco-list, .webview, #" + LIVE_PANEL_ID;
+
+        observer = new MutationObserver((records) => {
+            const relevant = records.some((record) => {
+                const el = record.target.nodeType === 1
+                    ? record.target
+                    : record.target.parentElement;
+
+                return !el || !el.closest(NOISY);
+            });
+
+            if (relevant) {
+                scheduleRefresh();
+            }
+        });
 
         observer.observe(
             document.documentElement,
