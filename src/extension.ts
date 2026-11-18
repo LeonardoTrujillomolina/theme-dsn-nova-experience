@@ -1,4 +1,6 @@
 import * as crypto from "crypto";
+import * as fs from "fs";
+import * as path from "path";
 import * as vscode from "vscode";
 import {
     configureLoader,
@@ -164,6 +166,37 @@ async function showDiagnostics(
 
 const APPLIED_HASH_KEY = "dsnNova.loaderAppliedHash";
 
+// True when the loader's marker is present in the current workbench.html.
+// If the file cannot be located, assume injected to avoid re-applying on every start.
+function isLoaderInjected(): boolean {
+    const candidates = [
+        "electron-browser",
+        "electron-sandbox"
+    ].map((folder) =>
+        path.join(
+            vscode.env.appRoot,
+            "out", "vs", "code", folder,
+            "workbench", "workbench.html"
+        )
+    );
+
+    const file = candidates.find((candidate) =>
+        fs.existsSync(candidate)
+    );
+
+    if (!file) {
+        return true;
+    }
+
+    try {
+        return fs
+            .readFileSync(file, "utf8")
+            .includes("VSCODE-CUSTOM-CSS-START");
+    } catch {
+        return true;
+    }
+}
+
 // The loader bakes the imported CSS/JS into VS Code, so it must be re-applied
 // whenever any imported file changes (settings, extension update).
 async function syncLoader(
@@ -176,6 +209,11 @@ async function syncLoader(
     }
 
     const hash = crypto.createHash("sha1");
+
+    // A VS Code update replaces workbench.html and drops the injection,
+    // so the installed build must be part of the applied state.
+    hash.update(vscode.version);
+    hash.update(vscode.env.appRoot);
 
     for (const entry of imports) {
         try {
@@ -191,7 +229,10 @@ async function syncLoader(
 
     const digest = hash.digest("hex");
 
+    const injected = isLoaderInjected();
+
     if (
+        injected &&
         context.globalState.get<string>(
             APPLIED_HASH_KEY
         ) === digest
@@ -207,6 +248,19 @@ async function syncLoader(
             APPLIED_HASH_KEY,
             digest
         );
+
+        if (!injected) {
+            void vscode.window.showInformationMessage(
+                "DSN Nova was re-applied after a VS Code update. Restart VS Code to see it.",
+                "Restart Now"
+            ).then((selection) => {
+                if (selection === "Restart Now") {
+                    void vscode.commands.executeCommand(
+                        "workbench.action.quit"
+                    );
+                }
+            });
+        }
     } catch {
         void vscode.window.showWarningMessage(
             "DSN Nova could not enable Custom CSS and JS automatically. Run 'Enable Custom CSS and JS' from the Command Palette."
