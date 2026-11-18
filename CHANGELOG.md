@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.2
+
+- DSN Nova now detects when a VS Code update removed the Custom CSS and JS injection and re-applies it automatically, offering a restart.
+
 ## 0.1.1
 
 - Fixed Jupyter notebooks not showing: their overlay was rendered behind the editor area.
